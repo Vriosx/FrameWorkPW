@@ -8,27 +8,50 @@ document.querySelector("#botao-cadastrar").addEventListener("click", () => {
         pontos : form.pontos.value
     }
 
-    validar(tarefa)
-    console.log(titulo, descricao, pontos)
+    if(validar(tarefa)){
+        console.log(tarefa)
+        let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []
+        tarefas.push(tarefa)
+        localStorage.setItem("tarefas", JSON.stringify(tarefas))
+        
+        window.location = "/"
+    }
 
-});
+})
 
 function validar(tarefa){
+    let valid = true
+
     limparErros()
 
     if(tarefa.titulo === "" ){
         document.querySelector("#titulo").classList.add("is-error")
         document.querySelector("#titulo-error").innerText = "O titulo é obrigatorio!"
+        valid = false
     }
     if(tarefa.descricao === ""){
-        console.log("Titulo Inválido")
+        document.querySelector("#descricao").classList.add("is-error")
+        document.querySelector("#descricao-error").innerText = "A descrição é obrigatoria!"
+        valid = false
     }
-    if(tarefa.pontos === ""){
-        console.log("Titulo Inválido")
-    }
+    if(tarefa.pontos <= 0){
+        document.querySelector("#pontos").classList.add("is-error")
+        document.querySelector("#pontos-error").innerText = "Pontos devem ser maior que zero"
+        valid = false
+        }
+
+    return valid 
+   
+
 }
 
 function limparErros(){
-    document.querySelector("#titulo").classList.remove("is-error")
-    document.querySelector("#titulo-error").innerText = ""
+    document
+        .querySelectorAll(".nes-input.is-error, .nes-textarea.is-error")
+        .forEach(campo => campo.classList.remove("is-error"))
+
+    document
+        .querySelectorAll("span.is-error")
+        .forEach(span => span.innerText = "")
+       
 }
