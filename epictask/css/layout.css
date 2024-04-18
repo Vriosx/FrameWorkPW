@@ -17,4 +17,22 @@ nav{
     margin-bottom: 2rem;
 }
 
+.apagando{
+    animation: fadeout 1s;
+}
+
+@keyframes fadeout{
+    to{opacity: 0;}
+}
+
+.stats{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    p{
+        font-size: 3rem;
+        text-align: center;
+    }
+}
 

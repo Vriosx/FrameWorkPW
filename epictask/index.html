@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="./javascript/stats.js" defer></script>
     <script src="./javascript/carregar.js" defer></script>
+    <script src="./javascript/apagar.js" defer></script>
+    <script src="./javascript/editar.js" defer></script>
     <title>EpicTask</title>
 </head>
 <body>
@@ -17,9 +20,23 @@
         <h1>EpicTask</h1>
         <a href="form.html" class="nes-btn is-success">Nova Tarefa</a>
 
-
     </nav>
     
+    <div class="stats">
+        <div class="nes-container is-rounded is-dark">
+            <p id="total-pendentes">10</p>
+            <span>Tarefas pendentes</span>
+          </div>
+          <div class="nes-container is-rounded is-dark">
+            <p id="total-concluidas">10</p>
+            <span>Tarefas Concluidas</span>
+          </div>
+          <div class="nes-container is-rounded is-dark">
+            <p id="total-pontos">10</p>
+            <span>Pontos Ganhos</span>
+          </div>
+    </div>
+
     <section id="lista-de-tarefas"></section>
     
 </body>
